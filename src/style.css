@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blueBg: rgb(1, 130, 129);
+  --windowsBlue: #02a5ff;
+  --windowsRed: #ff3300;
+  --windowsGreen: #66cc33;
+  --windowsYellow: #ffcc00;
+  --windowsGray: rgb(192, 192, 192);
+  --windowsActiveBlue: rgb(0, 9, 124);
+}
+
+.window {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  background: var(--windowsGray);
+}
+
+.window-inset {
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  background: var(--windowsGray);
+}
