@@ -55,6 +55,7 @@ const close = () => {
     class="taskbar-item window px-2 flex space-around"
     @click.stop="active = !active"
   >
+  <img src="../assets/windows-95.png" class="h-6 w-6 mr-2">
     Start
   </div>
   <div class="window start-menu" v-outside-click="close" v-if="active">
@@ -81,8 +82,8 @@ const close = () => {
           class="
             absolute
             -top-1
-            left-[110%]
-            -ml-5
+            left-[100%]
+            -ml-0.5
             bg-red-200
             w-full
             -mr-2
@@ -106,7 +107,6 @@ const close = () => {
             "
             :class="[
               subItem.active ? 'item--active' : '',
-              subItem.subMenu !== null ? 'item--has-menu' : '',
             ]"
           >
             {{ subItem.title }}
@@ -135,9 +135,9 @@ const close = () => {
           first-letter:underline
           pl-1
           cursor-pointer
-          min-w-max
-          w-full
-          mr-0;
+          mr-0
+          relative
+          min-w-[20%];
 
   position: relative;
 

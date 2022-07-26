@@ -1,45 +1,34 @@
 <script setup>
-import { ref } from 'vue';
-import StartMenu from './components/StartMenu.vue';
-const date = ref(
-  new Date()
-    .toLocaleTimeString('en-gb', { timeStyle: 'short', hour12: true })
-    .toString()
-    .toUpperCase()
-    .replace(' ', '')
-);
+import TaskBar from './components/TaskBar.vue';
+import DesktopItem from './components/DesktopItem.vue';
 
-setInterval(() => {
-  date.value = new Date()
-    .toLocaleTimeString('en-gb', { timeStyle: 'short', hour12: true })
-    .toString()
-    .toUpperCase()
-    .replace(' ', '');
-}, 1000);
+const desktopItems = [ 
+  {
+    icon: '../src/assets/recycling-bin.png',
+  title: 'Recycling bin'
+},
+  {
+    icon: '../src/assets/notepad.png',
+    title: 'notepad'
+  },
+  {
+    icon: '../src/assets/my-computer.png',
+    title: 'my computer'
+  },
+   {
+    icon: '../src/assets/internet-explorer.png',
+    title: 'internet explorer'
+  },
+]
+
 </script>
 
 <template>
-  <div class="desktop grid items-end">
-    <div
-      class="
-        taskbar
-        w-full
-        h-8
-        items-center
-        flex flex-row
-        px-1
-        font-bold
-        space-x-1
-      "
-    >
-      <StartMenu />
-      <div class="taskbar-item window px-2 flex space-around">
-        Microsoft Internet Explorer
-      </div>
-      <div class="taskbar-clock items-center px-2 window-inset font-normal">
-        {{ date }}
-      </div>
+  <div class="desktop grid grid-rows-1">
+    <div class="flex flex-row justify-start gap-12 p-4">
+      <DesktopItem v-for="item in desktopItems" :icon="item.icon" :title="item.title" :key="item"></DesktopItem>
     </div>
+    <TaskBar class="self-end"></TaskBar>
   </div>
 </template>
 
